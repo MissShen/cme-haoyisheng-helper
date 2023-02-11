@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         好医生-视频播放一键到底
 // @namespace    https://dev.limkim.xyz/
-// @version      0.3
+// @version      1.0
 // @description  好医生继续医学教育视频利用倍速直接一键看完(含北京市继续医学教育必修课培训)
 // @author       limkim
 // @match        http://cme.haoyisheng.com/cme/polyv.jsp*

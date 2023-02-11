@@ -7,4 +7,4 @@
 
 ## PS：请使用较新版本浏览器，推荐Edge和Chrome浏览器，实测火狐浏览器有Bug, 考试功能极小概率可能出现循环卡死
 
-## 出现问题请联系作者(QQ: 1704687020)
+## 出现问题请[提交issue](https://github.com/lim-kim930/cme-haoyisheng-helper/issues)

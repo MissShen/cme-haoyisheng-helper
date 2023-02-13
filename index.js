@@ -203,15 +203,9 @@
             document.querySelector('.ccH5playerBox').style.overflow = 'visible';
         }
 
-        checkboxContainer.appendChild(videoCheckboxLabel);
-        checkboxContainer.appendChild(videoCheckbox);
-        checkboxContainer.appendChild(examCheckboxLabel);
-        checkboxContainer.appendChild(examCheckbox);
-        selecterContainer.appendChild(selecterLabel);
-        selecterContainer.appendChild(playRateSelecter);
-        parent.appendChild(videoSkipButton);
-        parent.appendChild(checkboxContainer);
-        parent.appendChild(selecterContainer);
+        checkboxContainer.append(videoCheckboxLabel, videoCheckbox, examCheckboxLabel, examCheckbox);
+        selecterContainer.append(selecterLabel, playRateSelecter);
+        parent.append(selecterContainer, checkboxContainer, videoSkipButton);
 
         if (localStorage.getItem('script_auto_skip') === 'true') {
             videoCheckbox.checked = true;

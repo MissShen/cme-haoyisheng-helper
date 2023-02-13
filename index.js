@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         好医生-视频一键到底与自动答题
 // @namespace    https://dev.limkim.xyz/
-// @version      1.0.1
+// @version      1.1.0
 // @description  好医生继续医学教育视频一键看完(含北京市继续医学教育必修课培训), 并且支持考试自动完成
 // @author       limkim
 // @match        http://cme.haoyisheng.com/cme/polyv.jsp*
@@ -14,8 +14,8 @@
 // @match        https://www.cmechina.net/cme/exam.jsp*
 // @match        https://www.cmechina.net/cme/examQuizFail.jsp*
 // @license MIT
- 
-// @icon         data:image/x-icon;base64,AAABAAEAQEAAAAEAIAAoQgAAFgAAACgAAABAAAAAgAAAAAEAIAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP9rgADiW3sG4FZ0HOBUdD7gVXRM4Vd2VOBVdE7gVHRC4FRzIuFbeQjXYmsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADecHsG3Wp21d1pdf/caXX/3Wl1/91pdf/caXX/3Wl1/91pdf/daXX/3Wl1/91pdf/daXX/3Wl1/91pdf/daXX/3Wl1/91pdf/daXX/3Wl1/9xpdf/daXX/3Wl1/9xpdf/daXX/3Wl1/9xpdf/daXX/3Wl1/9xpdf/daXX/3Wl1/91pdf/daXX/3Wl1/91pdf/daXX/3Wl27d1teBQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3G13SNxrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/ca3X/3Gt1/9xrdf/cbXdwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3XZ6ANxveKfcbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G12/9xtdv/cbXb/3G53zd1xewIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN12fAjccHft3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdv/cb3b/3G92/9xvdvvddXseAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADddns823F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/23F2/9txdv/bcXb/3HR5XAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA3HZ5bttzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9tzd//bc3f/23N3/9t0eI0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANt3eZXbdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdXf/23V3/9t1d//bdnixAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADad3in2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/2nd4/9p3eP/ad3j/23h5yd+PjwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2np5sdp5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9p5eP/aeXj/2nl4/9t8etffh4QCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANp8ebHae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/ae3j/2nt4/9p7eP/afXrX3IeHAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADafXml2n15/9p9ef/afXn/2n15/9p9ef/afXn/2n15/9p9ef/afXn/2n15/9p9ef/afXn/2n15/9p9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AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANK5hKvRuIP/0biD/9G4g//RuIP/0biD/9G4g//RuIP/0biD/9G4g//RuIP/0biD/9G4g//RuIP/0rmEdAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADRu4Sp0buD/9G7g//Ru4T50buD/9G7g//Ru4P/0buD/9G7g//Ru4P/0buD/9G7g//Ru4P/0buD/9K8hm4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0b2FhdG9hP/RvYTN08CLING9hNvRvYT/0b2E/9G9hP/RvYT/0b2E/9G9hP/RvYT/0b2E/9G9hP/RvoZEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANPCizTQv4T90L+E7dHBhh7Rv4Yw0b+F49C/hP/Qv4T/0L+E/9C/hP/Qv4T/0L+E/9C/hP/Qv4Tl0b+HCgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADUw48C0cGGr9DBhP/QwYXH0cOIFtPEjRTQwYXd0MGE/9DBhP/QwYT/0MGE/9DBhP/QwYT/0MGFagAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANHDhxjQw4XX0MOF/9DDhePQxIeN0MOF8dDDhf/Qw4X/0MOF/9DDhf/Qw4X/0MOGqdHDhwQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0MWIGNDFhrfPxYX9z8WF/8/Fhf/PxYX/z8WF/8/Fhf/QxYX50MWHkdDFiQYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADRyIwC0MeJSNDHh6fPx4fV0MeH39DIh8/QyIiX0ciLMs7HiAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA1MuDANPMjwLT04oAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA////////////////////////////////////AB////////gAA///////4AAA///////AAAB//////wAAAB/////+AAAAD/////wAAAAH/////AAAAAP////4AAAAA/////AAAAAB////8AAAAAD////gAAAAAP///+AAAAAA////wAAAAAB////AAAAAAH///8AAAAAAf///wAAAAAA///+AAAAAAD///4AAAAAAP///gAAAAAA///+AAAAAAD///4AAAAAAP///gAAAAAA////AAAAAAD///8AAAAAAf///wAAAAAB////AAAAAAEf//+IAAAAAw///4wAAAADB///xAAAAAYD///GAAAABgP//+MAAAAMAf//8YAAABgB///44AAAGAH///gwAAAwAf///hgAAGAA////AAABwAD///+AAAMAAf///+AADgAB/////AB8AAH//////+YAA///////4wAD///////xgAf///////gAD///Af///AAf//4A///+AH///AB////B///4AD////////gAP///////8AA////////wAD////////AAP///////8QA////////5gD////////jAf////////AB////////+AP////////+D///////////////////////////////////////8=
+
+// @icon         https://dev.limkim.xyz/favicon.ico
 // @run-at       document-end
 // @grant        unsafeWindow
 // @grant        GM_addStyle
@@ -27,75 +27,77 @@
 // @grant        GM_notification
 // @grant        GM_xmlhttpRequest
 // ==/UserScript==
- 
- 
+
+
 (function () {
     'use strict';
+    // 获取本地存储的正确答案对象
     const getAnswerObject = () => {
-        let answerObject = localStorage.getItem("right_answer_obj") || "{}";
+        const answerObject = localStorage.getItem('right_answer_obj') || '{}';
         return JSON.parse(answerObject);
     };
+    const buttonCssText = 'position: absolute;z-index: 99999;top: -40px;right: 0;padding:10px;cursor:pointer;background-color: #3087d9;color: #fff;box-shadow: 0px 0px 12px rgba(0, 0, 0, .12);';
     // 考试结果页面进行遍历, 得到正确答案
-    if (window.location.pathname.includes("examQuizFail")) {
+    if (window.location.pathname.includes('examQuizFail')) {
         // 获取下一个选项
-        const getNextChoice = (str) => {
+        const getNextChoice = str => {
             const code = str.charCodeAt(0) + 1;
             if (code === 70) {
-                alert("全部遍历但未找到正确答案, 请确定是使用脚本按钮开始答题!");
-                return "A";
+                alert('全部遍历但未找到正确答案, 请确定是使用脚本按钮开始答题!');
+                return 'A';
             }
             return String.fromCharCode(code);
         };
         // 循环多选选项
-        const getNextMultipleChoice = (str) => {
-            const dic = ["ABCDE", "ABCD", "ABD", "ABC", "AB", "A"];
+        const getNextMultipleChoice = str => {
+            const dic = ['ABCDE', 'ABCD', 'ABD', 'ABC', 'AB', 'A'];
             const index = dic.indexOf(str);
             if (index === 5) {
-                alert("全部遍历但未找到正确答案, 请确定是使用脚本按钮开始答题!");
-                return "ABCDE";
+                alert('全部遍历但未找到正确答案, 请确定是使用脚本按钮开始答题!');
+                return 'ABCDE';
             }
             return dic[index + 1];
         };
-        const nowAnswerStr = window.location.search.split("ansList=")[1].split("&")[0];
-        const nowAnswerList = window.location.search.split("ansList=")[1].split("&")[0].split(",");
-        const h3List = document.querySelectorAll(".answer_list h3");
+        const nowAnswerStr = window.location.search.split('ansList=')[1].split('&')[0];
+        const nowAnswerList = window.location.search.split('ansList=')[1].split('&')[0].split(',');
+        const h3List = document.querySelectorAll('.answer_list h3');
         let finished = true;
         for (let i = 0; i < 5; i++) {
-            if (h3List[i].className === "cuo") {
+            if (h3List[i].className === 'cuo') {
                 finished = false;
                 if (nowAnswerList[i].length === 1) {
                     nowAnswerList[i] = getNextChoice(nowAnswerList[i]);
                 } else {
                     nowAnswerList[i] = getNextMultipleChoice(nowAnswerList[i]);
                 }
-                window.location.href = window.location.href.replace(nowAnswerStr, nowAnswerList.join(","));
+                window.location.href = window.location.href.replace(nowAnswerStr, nowAnswerList.join(','));
                 break;
             }
         }
         if (finished) {
-            const examId = window.location.search.split("course_id=")[1].split("&")[0] + "_" + window.location.search.split("paper_id=")[1].split("&")[0];
+            const examId = window.location.search.split('course_id=')[1].split('&')[0] + '_' + window.location.search.split('paper_id=')[1].split('&')[0];
             const answerObject = getAnswerObject();
             answerObject[examId] = nowAnswerList;
-            localStorage.setItem("right_answer_obj", JSON.stringify(answerObject));
+            localStorage.setItem('right_answer_obj', JSON.stringify(answerObject));
             history.go(-1);
         }
         return;
     }
     // 考试页面填写初始答案和正确答案,并提交
-    if (window.location.pathname.includes("exam")) {
-        const examId = window.location.search.split("course_id=")[1].split("&")[0] + "_" + window.location.search.split("paper_id=")[1].split("&")[0];
+    if (window.location.pathname.includes('exam')) {
+        const examId = window.location.search.split('course_id=')[1].split('&')[0] + '_' + window.location.search.split('paper_id=')[1].split('&')[0];
         const answerObject = getAnswerObject();
-        const autoSelectAnswer = (answerArray) => {
-            const liList = document.querySelectorAll(".exam_list li");
+        const autoSelectAnswer = answerArray => {
+            const liList = document.querySelectorAll('.exam_list li');
             for (let i = 0; i < 5; i++) {
                 const LiChildren = liList[i].children;
                 const answer = answerArray[i];
                 for (let i = 0; i < LiChildren.length; i++) {
-                    if (LiChildren[i].nodeName === "P") {
+                    if (LiChildren[i].nodeName === 'P') {
                         const input = LiChildren[i].children[0];
                         if (answer.includes(input.value)) {
-                            input.click();
-                            if (LiChildren[0].innerText.includes("单选")) { break; }
+                            input.dispatchEvent(new MouseEvent('click'));
+                            if (LiChildren[0].innerText.includes('单选')) { break; }
                         }
                     }
                 }
@@ -104,148 +106,128 @@
         // 得到正确答案返回后, 直接填写并提交
         if (answerObject[examId]) {
             autoSelectAnswer(answerObject[examId]);
-            document.querySelector("#tjkj").click();
-            return;
+            return document.querySelector('#tjkj').dispatchEvent(new MouseEvent('click'));
         }
-        const button = document.createElement('button');
- 
-        button.innerText = '考试? 拿来吧你!';
-        button.id = 'exam_skip_btn';
-        button.style.position = 'absolute';
-        button.style.zIndex = '99999';
-        button.style.top = '120px';
-        button.style.right = '150px';
-        button.style.padding = '10px';
-        button.style.cursor = 'pointer';
-        button.style.backgroundColor = '#3087d9';
-        button.style.color = '#fff';
-        button.style.boxShadow = "0px 0px 12px rgba(0, 0, 0, .12)";
- 
-        button.addEventListener("click", () => {
+
+        const examSkipButton = document.createElement('button');
+
+        examSkipButton.innerText = '考试? 拿来吧你!';
+        examSkipButton.id = 'exam_skip_btn';
+        examSkipButton.style.cssText = buttonCssText;
+        examSkipButton.style.top = '55px';
+        examSkipButton.style.right = '150px';
+
+        examSkipButton.addEventListener('click', () => {
             // 多选全选, 单选选A
-            autoSelectAnswer(["ABCDE", "ABCDE", "ABCDE", "ABCDE", "ABCDE"]);
-            document.querySelector("#tjkj").click();
+            autoSelectAnswer(['ABCDE', 'ABCDE', 'ABCDE', 'ABCDE', 'ABCDE']);
+            document.querySelector('#tjkj').dispatchEvent(new MouseEvent('click'));
         });
- 
-        return document.querySelector(".main").append(button);
+
+        document.querySelector('.main').appendChild(examSkipButton);
+
+        if (localStorage.getItem('script_auto_exam') === 'true') {
+            examSkipButton.dispatchEvent(new MouseEvent('click'));
+        }
+        return;
     }
     // 视频跳过
     setTimeout(() => {
-        const video = document.querySelector(".pv-video") || document.querySelector("video");
-        const button = document.createElement('button');
+        const video = document.querySelector('.pv-video') || document.querySelector('video');
+        const parent = video.parentElement;
+        const videoSkipButton = document.createElement('button');
         const selecterContainer = document.createElement('div');
         const selecterLabel = document.createElement('label');
         const playRateSelecter = document.createElement('select');
         const checkboxContainer = document.createElement('div');
-        const checkboxlabel = document.createElement('label');
-        const checkbox = document.createElement('input');
- 
-        button.innerText = '看视频? 拿来吧你!';
-        button.id = 'video_skip_btn';
-        button.style.position = 'absolute';
-        button.style.zIndex = '99999';
-        button.style.top = '-40px';
-        button.style.right = '0';
-        button.style.padding = '10px';
-        button.style.cursor = 'pointer';
-        button.style.backgroundColor = '#3087d9';
-        button.style.color = '#fff';
- 
-        checkboxContainer.style.position = 'absolute';
-        checkboxContainer.style.height = '37px';
-        checkboxContainer.style.lineHeight = '37px';
-        checkboxContainer.style.top = '-40px';
-        checkboxContainer.style.right = '140px';
- 
-        checkbox.id = 'auto_skip_checkbox';
-        checkbox.type = 'checkbox';
-        checkbox.style.verticalAlign = 'middle';
-        checkbox.style.cursor = 'pointer';
-        checkbox.style.lineHeight = '37px';
- 
-        checkboxlabel.innerText = '下次自动看完:';
-        checkboxlabel.style.color = '#3087d9';
-        checkboxlabel.style.verticalAlign = 'middle';
-        checkboxlabel.style.marginRight = '5px';
-        checkboxlabel.style.fontSize = '15px';
-        checkboxlabel.style.lineHeight = '37px';
- 
-        selecterContainer.style.position = 'absolute';
-        selecterContainer.style.height = '37px';
-        selecterContainer.style.lineHeight = '37px';
-        selecterContainer.style.top = '-40px';
-        selecterContainer.style.right = '260px';
- 
-        selecterLabel.innerText = "倍速:";
-        selecterLabel.style.color = '#3087d9';
-        selecterLabel.style.verticalAlign = 'middle';
-        selecterLabel.style.marginRight = '5px';
-        selecterLabel.style.fontSize = '15px';
-        selecterLabel.style.lineHeight = '37px';
- 
-        playRateSelecter.id = "play_rate_selecter";
-        playRateSelecter.style.verticalAlign = 'middle';
-        playRateSelecter.cursor = 'pointer';
-        playRateSelecter.style.border = "1px solid #000";
- 
+        const videoCheckboxLabel = document.createElement('label');
+        const videoCheckbox = document.createElement('input');
+        const examCheckboxLabel = document.createElement('label');
+        const examCheckbox = document.createElement('input');
+
+        const containerCssText = 'position: absolute;height: 37px;line-height: 37px;top: -40px;right: 140px;';
+        const labelCssText = 'vertical-align: middle;margin-right: 5px;line-height: 37px;color: #3087d9;font-size: 15px;';
+        const controlerCssText = 'vertical-align: middle;cursor: pointer;';
+        videoSkipButton.innerText = '看视频? 拿来吧你!';
+        videoSkipButton.style.cssText = buttonCssText;
+        checkboxContainer.style.cssText = containerCssText;
+        videoCheckboxLabel.innerText = '下次自动看完:';
+        videoCheckboxLabel.style.cssText = labelCssText;
+        videoCheckbox.type = 'checkbox';
+        videoCheckbox.style.cssText = controlerCssText;
+        videoCheckbox.style.marginRight = '5px';
+        examCheckboxLabel.innerText = '自动开考:';
+        examCheckboxLabel.style.cssText = labelCssText;
+        examCheckbox.type = 'checkbox';
+        examCheckbox.style.cssText = controlerCssText;
+        selecterContainer.style.cssText = containerCssText;
+        selecterContainer.style.right = '345px';
+        selecterLabel.innerText = '倍速:';
+        selecterLabel.style.cssText = labelCssText;
+        playRateSelecter.style.cssText = controlerCssText;
+        playRateSelecter.style.border = '1px solid #000';
+        // 倍速选择器初始化选项
         for (let i = 1; i <= 15; i++) {
-            const option = document.createElement("option");
+            const option = document.createElement('option');
             option.value = i;
             option.label = i;
-            playRateSelecter.append(option);
+            playRateSelecter.appendChild(option);
         }
- 
-        playRateSelecter.addEventListener("change", () => {
+
+        playRateSelecter.addEventListener('change', () => {
             video.playbackRate = parseInt(playRateSelecter.value);
-            localStorage.setItem("play_back_rate", playRateSelecter.value);
+            localStorage.setItem('play_back_rate', playRateSelecter.value);
         });
- 
-        if (document.querySelector('.content .h5')) {
-            document.querySelector('.content .h5').style.marginBottom = '50px';
-            checkboxContainer.style.top = '-45px';
-            button.style.top = '-45px';
-            button.style.border = 'none';
-        }
- 
-        if (document.querySelector('.ccH5playerBox')) {
-            document.querySelector('.ccH5playerBox').style.overflow = 'visible';
-        }
- 
-        checkboxContainer.appendChild(checkboxlabel);
-        checkboxContainer.appendChild(checkbox);
-        selecterContainer.appendChild(selecterLabel);
-        selecterContainer.appendChild(playRateSelecter);
-        const parent = video.parentElement;
-        parent.appendChild(button);
-        parent.appendChild(checkboxContainer);
-        parent.appendChild(selecterContainer);
- 
-        const skipBtn = document.querySelector("#video_skip_btn");
-        skipBtn.addEventListener('click', () => {
+        videoCheckbox.addEventListener('change', e => {
+            const autoVlaue = e.target.checked;
+            localStorage.setItem('script_auto_skip', JSON.stringify(autoVlaue));
+        });
+        examCheckbox.addEventListener('change', e => {
+            const autoVlaue = e.target.checked;
+            localStorage.setItem('script_auto_exam', JSON.stringify(autoVlaue));
+        });
+        videoSkipButton.addEventListener('click', () => {
             video.volume = 0;
             video.playbackRate = parseInt(playRateSelecter.value);
             video.play();
             video.currentTime = video.duration;
         });
- 
-        if (localStorage.getItem('script_auto_skip') === 'true') {
-            checkbox.checked = true;
-            skipBtn.dispatchEvent(new MouseEvent('click'));
+
+        if (document.querySelector('.content .h5')) {
+            document.querySelector('.content .h5').style.marginBottom = '50px';
+            checkboxContainer.style.top = '-45px';
+            videoSkipButton.style.top = '-45px';
+            videoSkipButton.style.border = 'none';
+            selecterContainer.style.top = '-45px';
         }
- 
-        const localRate = localStorage.getItem("play_back_rate");
+        if (document.querySelector('.ccH5playerBox')) {
+            document.querySelector('.ccH5playerBox').style.overflow = 'visible';
+        }
+
+        checkboxContainer.appendChild(videoCheckboxLabel);
+        checkboxContainer.appendChild(videoCheckbox);
+        checkboxContainer.appendChild(examCheckboxLabel);
+        checkboxContainer.appendChild(examCheckbox);
+        selecterContainer.appendChild(selecterLabel);
+        selecterContainer.appendChild(playRateSelecter);
+        parent.appendChild(videoSkipButton);
+        parent.appendChild(checkboxContainer);
+        parent.appendChild(selecterContainer);
+
+        if (localStorage.getItem('script_auto_skip') === 'true') {
+            videoCheckbox.checked = true;
+            videoSkipButton.dispatchEvent(new MouseEvent('click'));
+        }
+        if (localStorage.getItem('script_auto_exam') === 'true') {
+            examCheckbox.checked = true;
+        }
+
+        const localRate = localStorage.getItem('play_back_rate');
         if (localRate && parseInt(localRate) !== NaN && parseInt(localRate) >= 1 && parseInt(localRate) <= 15) {
             playRateSelecter.value = localRate;
             video.playbackRate = parseInt(localRate);
         } else {
-            playRateSelecter.value = "10";
+            playRateSelecter.value = '10';
             video.playbackRate = 10;
         }
- 
-        const ifAutoCheckbox = document.querySelector("#auto_skip_checkbox");
-        ifAutoCheckbox.addEventListener('change', e => {
-            const autoVlaue = e.target.checked;
-            localStorage.setItem('script_auto_skip', JSON.stringify(autoVlaue));
-        });
     }, 1000);
 })();

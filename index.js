@@ -135,7 +135,6 @@
         const video = document.querySelector('.pv-video') || document.querySelector('video');
         const parent = video.parentElement;
         const videoSkipButton = document.createElement('button');
-        const selecterContainer = document.createElement('div');
         const selecterLabel = document.createElement('label');
         const playRateSelecter = document.createElement('select');
         const checkboxContainer = document.createElement('div');
@@ -144,26 +143,23 @@
         const examCheckboxLabel = document.createElement('label');
         const examCheckbox = document.createElement('input');
 
-        const containerCssText = 'position: absolute;height: 37px;line-height: 37px;top: -40px;right: 140px;';
+        const containerCssText = 'position: absolute;height: 37px;line-height: 37px;top: -40px;right: 130px;';
         const labelCssText = 'vertical-align: middle;margin-right: 5px;line-height: 37px;color: #3087d9;font-size: 15px;';
-        const controlerCssText = 'vertical-align: middle;cursor: pointer;';
+        const controllerCssText = 'vertical-align: middle;cursor: pointer; margin-right: 5px;';
         videoSkipButton.innerText = '看视频? 拿来吧你!';
         videoSkipButton.style.cssText = buttonCssText;
         checkboxContainer.style.cssText = containerCssText;
-        videoCheckboxLabel.innerText = '下次自动看完:';
+        videoCheckboxLabel.innerText = '自动看完:';
         videoCheckboxLabel.style.cssText = labelCssText;
         videoCheckbox.type = 'checkbox';
-        videoCheckbox.style.cssText = controlerCssText;
-        videoCheckbox.style.marginRight = '5px';
-        examCheckboxLabel.innerText = '自动开考:';
+        videoCheckbox.style.cssText = controllerCssText;
+        examCheckboxLabel.innerText = '进入考试后自动开考:';
         examCheckboxLabel.style.cssText = labelCssText;
         examCheckbox.type = 'checkbox';
-        examCheckbox.style.cssText = controlerCssText;
-        selecterContainer.style.cssText = containerCssText;
-        selecterContainer.style.right = '345px';
+        examCheckbox.style.cssText = controllerCssText;
         selecterLabel.innerText = '倍速:';
         selecterLabel.style.cssText = labelCssText;
-        playRateSelecter.style.cssText = controlerCssText;
+        playRateSelecter.style.cssText = controllerCssText;
         playRateSelecter.style.border = '1px solid #000';
         // 倍速选择器初始化选项
         for (let i = 1; i <= 15; i++) {
@@ -197,15 +193,13 @@
             checkboxContainer.style.top = '-45px';
             videoSkipButton.style.top = '-45px';
             videoSkipButton.style.border = 'none';
-            selecterContainer.style.top = '-45px';
         }
         if (document.querySelector('.ccH5playerBox')) {
             document.querySelector('.ccH5playerBox').style.overflow = 'visible';
         }
 
-        checkboxContainer.append(videoCheckboxLabel, videoCheckbox, examCheckboxLabel, examCheckbox);
-        selecterContainer.append(selecterLabel, playRateSelecter);
-        parent.append(selecterContainer, checkboxContainer, videoSkipButton);
+        checkboxContainer.append(examCheckboxLabel, examCheckbox, videoCheckboxLabel, videoCheckbox, selecterLabel, playRateSelecter);
+        parent.append(checkboxContainer, videoSkipButton);
 
         if (localStorage.getItem('script_auto_skip') === 'true') {
             videoCheckbox.checked = true;
